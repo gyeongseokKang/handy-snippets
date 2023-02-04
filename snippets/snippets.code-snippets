@@ -1,1 +1,107 @@
-{}
+{
+  "export default component": {
+    "prefix": "edc",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "  return <>$2</>;",
+      "};",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "export default component"
+  },
+  "export default function": {
+    "prefix": "edf",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}} = () => {",
+      "  return;",
+      "};",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "export default function"
+  },
+  "zustand store": {
+    "prefix": "zs",
+    "body": [
+      "import { create } from \"zustand\";",
+      "",
+      "type State = {};",
+      "",
+      "type Actions = {",
+      "  reset: () => void;",
+      "};",
+      "",
+      "const initialState: State = {};",
+      "",
+      "const use${1:${TM_FILENAME_BASE}}; = create<State & Actions>((set) => ({",
+      "  ...initialState,",
+      "  reset: () => set(initialState),",
+      "}));",
+      "export default use${1:${TM_FILENAME_BASE}};;",
+      ""
+    ],
+    "description": "zustand store"
+  },
+  "zustand store with immer": {
+    "prefix": "zsi",
+    "body": [
+      "import { create } from \"zustand\";",
+      "import { immer } from \"zustand/middleware/immer\";",
+      "",
+      "type State = {$2};",
+      "",
+      "type Actions = {",
+      "  reset: () => void;",
+      "};",
+      "",
+      "const initialState: State = {$2};",
+      "",
+      "const use${1:${TM_FILENAME_BASE}} = create(",
+      "  immer<State & Actions>((set) => ({",
+      "    ...initialState,",
+      "    reset: () => set(initialState),",
+      "  }))",
+      ");",
+      "",
+      "export default use${1:${TM_FILENAME_BASE}};",
+      ""
+    ],
+    "description": "zustand store with immer"
+  },
+  "zustand store with immer, persist": {
+    "prefix": "zsip",
+    "body": [
+      "import { create } from \"zustand\";",
+      "import { createJSONStorage, persist } from \"zustand/middleware\";",
+      "import { immer } from \"zustand/middleware/immer\";",
+      "",
+      "type State = {};",
+      "",
+      "type Actions = {",
+      "  reset: () => void;",
+      "};",
+      "",
+      "const initialState: State = {};",
+      "",
+      "const use${1:${TM_FILENAME_BASE}} = create<State & Actions>()(",
+      "  persist(",
+      "    immer((set) => ({",
+      "      ...initialState,",
+      "      reset: () => {",
+      "        set(initialState);",
+      "      },",
+      "    })),",
+      "    {",
+      "      name: \"${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}}-storage\",",
+      "      storage: createJSONStorage(() => ${2|localStorage,sessionStorage|}),",
+      "    }",
+      "  )",
+      ");",
+      "",
+      "export default use${1:${TM_FILENAME_BASE}};",
+      ""
+    ],
+    "description": "zustand store with immer, persist"
+  }
+}
