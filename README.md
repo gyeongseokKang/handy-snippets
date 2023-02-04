@@ -1,33 +1,20 @@
-# handy-snippets README
+# handy-snippets| 내가 만든 나만의 스니펫 모음집
 
-This is the README for your extension "handy-snippets". After writing up a brief description, we recommend including the following sections.
+내가 편하려고 만든 코드 스니펫 모음
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+1. zustand + typescript에 대한 기본 생성 스니펫 제공
 
-For example if there is an image subfolder under your extension project workspace:
+## Snippets
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
-
-# handy_snippet | 내가 만든 나만의 스니펫 모음집
+| Snippet | Renders                           |
+| ------- | --------------------------------- |
+| `edc`   | export default component          |
+| `edf`   | export default function           |
+| `zs`    | zustand store                     |
+| `zsi`   | zustand store with immer          |
+| `zsip`  | zustand store with immer, persist |
 
 ## 원칙
 

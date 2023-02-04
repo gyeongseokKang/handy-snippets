@@ -2,10 +2,22 @@
   "name": "handy-snippets",
   "displayName": "handy-snippets",
   "description": "handy's custom snippets",
-  "version": "0.0.1",
+  "publisher": "handy-kang",
+  "icon": "images/handy-logo.png",
+  "version": "0.0.2",
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.60.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gyeongseokKang/handy-snippets.git"
+  },
+  "keywords": [
+    "React",
+    "TypeScrirpt",
+    "React Snippets",
+    "Zustand"
+  ],
   "categories": [
     "Snippets"
   ],
