@@ -10,13 +10,14 @@
 
 ## Snippets
 
-| Snippet | Renders                           |
-| ------- | --------------------------------- |
-| `edc`   | export default component          |
-| `edf`   | export default function           |
-| `zs`    | zustand store                     |
-| `zsi`   | zustand store with immer          |
-| `zsip`  | zustand store with immer, persist |
+| Snippet | Renders                             |
+| ------- | ----------------------------------- |
+| `edc`   | export default component            |
+| `edcp`  | export default component with props |
+| `edf`   | export default function             |
+| `zs`    | zustand store                       |
+| `zsi`   | zustand store with immer            |
+| `zsip`  | zustand store with immer, persist   |
 
 ## 원칙
 
