@@ -4,7 +4,7 @@
   "description": "handy's custom snippets",
   "publisher": "handy-kang",
   "icon": "images/handy-logo.png",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -25,6 +25,10 @@
     "snippets": [
       {
         "language": "typescript",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
         "path": "./snippets/snippets.code-snippets"
       }
     ]
