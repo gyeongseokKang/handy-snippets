@@ -1,7 +1,9 @@
 # handy-snippets| 내가 만든 나만의 스니펫 모음집
 
 내가 편하려고 만든 코드 스니펫 모음  
-[VSC 마켓](https://marketplace.visualstudio.com/items?itemName=handy-kang.handy-snippets)
+[VSC 마켓](https://marketplace.visualstudio.com/items?itemName=handy-kang.handy-snippets).  
+![handy-snippets](https://user-images.githubusercontent.com/61446585/216868415-278ae7c9-afc3-4794-809d-af9953f979a3.gif)
+
 ## Features
 
 1. zustand + typescript에 대한 기본 생성 스니펫 제공
