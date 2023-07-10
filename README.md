@@ -1,7 +1,5 @@
 # handy-snippets| Zustand
-
-[VSC 마켓](https://marketplace.visualstudio.com/items?itemName=handy-kang.handy-snippets).  
-![handy-snippets](https://user-images.githubusercontent.com/61446585/216868415-278ae7c9-afc3-4794-809d-af9953f979a3.gif)
+![How to Use](https://github.com/gyeongseokKang/handy-snippets/assets/61446585/3d84b401-dd9d-48ec-a0b2-9428a00bc87c.gif)
 
 ## Features
 
@@ -21,6 +19,9 @@
 | `zspi`  | zustand store with persist, immer           |
 | `zsdi`  | zustand store with devtools, immer          |
 | `zsdpi` | zustand store with devtools, persist, immer |
+
+## Market Place
+go to [Market Place](https://marketplace.visualstudio.com/items?itemName=handy-kang.handy-snippets).  
 
 ## Rule(원칙)
 
