@@ -9,11 +9,22 @@
 
 ## Snippets
 
+### Export Default Components
+
+| Snippet | Renders                             |
+| ------- | ----------------------------------- |
+| `edc`   | export default component            |
+| `edcp`  | export default component with props |
+| `edf`   | export default function             |
+
+### Zustand Stores
+
+> Note: `persist`, `devtools`, and `immer` are from the official libraries, while `history` is implemented using Zundo.
+
+To use `immer`, you need to download the `immer` library, and for `history`, you need to download `zundo`.
+
 | Snippet | Renders                                     |
 | ------- | ------------------------------------------- |
-| `edc`   | export default component                    |
-| `edcp`  | export default component with props         |
-| `edf`   | export default function                     |
 | `zs`    | zustand store                               |
 | `zsp`   | zustand store with persist                  |
 | `zsd`   | zustand store with devtools                 |
@@ -21,6 +32,9 @@
 | `zspi`  | zustand store with persist, immer           |
 | `zsdi`  | zustand store with devtools, immer          |
 | `zsdpi` | zustand store with devtools, persist, immer |
+| `zsh`   | zustand store with history                  |
+| `zsih`  | zustand store with immer, history           |
+| `zspih` | zustand store with persist, immer, history  |
 
 ## Rule(원칙)
 
