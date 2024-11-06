@@ -1,5 +1,13 @@
 # Change Log
 
+### v1.1.0 - 2024/11/06
+
+Added new Zustand snippets with history using Zundo:
+
+- `zsh`: zustand store with history
+- `zsih`: zustand store with immer, history
+- `zspih`: zustand store with persist, immer, history
+
 ### v1.0.0 - 2023/07/10
 
 Added Zustand snippet(prefix -zs) with typescript, middleware(persist, devtools, immer)

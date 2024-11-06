@@ -1,39 +1,4 @@
 {
-  "export default component": {
-    "prefix": "edc",
-    "body": [
-      "const ${1:${TM_FILENAME_BASE}} = () => {",
-      "  return <>$2</>;",
-      "};",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}};"
-    ],
-    "description": "export default component"
-  },
-  "export default function": {
-    "prefix": "edf",
-    "body": [
-      "const ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}} = () => {",
-      "  return;",
-      "};",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}};"
-    ],
-    "description": "export default function"
-  },
-  "export default component with props": {
-    "prefix": "edcp",
-    "body": [
-      "interface ${1:${TM_FILENAME_BASE}}Props {}",
-      "",
-      "const ${1:${TM_FILENAME_BASE}} = ({}: ${1:${TM_FILENAME_BASE}}Props) => {",
-      "  return <>$2</>;",
-      "};",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}};"
-    ],
-    "description": "export default component with props"
-  },
   "zustand store": {
     "prefix": "zs",
     "body": [
@@ -228,8 +193,8 @@
       "        },",
       "      })),",
       "      {",
-      "        name: \"postRecommendHistory-storage\",",
-      "        storage: createJSONStorage(() => localStorage),",
+      "        name: \"${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}}-storage\",",
+      "        storage: createJSONStorage(() => ${2|localStorage,sessionStorage|}),",
       "      }",
       "    )",
       "  )",
@@ -238,5 +203,117 @@
       "export default use${1:${TM_FILENAME_BASE}};"
     ],
     "description": "zustand store with immer, persist, devtools"
+  },
+  "zustand store with history": {
+    "prefix": "zsh",
+    "body": [
+      "import { temporal } from \"zundo\";",
+      "import { create } from \"zustand\";",
+      "",
+      "type State = {};",
+      "",
+      "type Actions = {",
+      "  undo: (steps?: number) => void;",
+      "  redo: (steps?: number) => void;",
+      "  reset: () => void;",
+      "};",
+      "",
+      "const initialState: State = {};",
+      "",
+      "const use${1:${TM_FILENAME_BASE}} = create<State & Actions>()(",
+      "  temporal((set) => ({",
+      "    ...initialState,",
+      "    undo: (steps) => {",
+      "      use${1:${TM_FILENAME_BASE}}.temporal.getState().undo(steps);",
+      "    },",
+      "    redo: (steps) => {",
+      "      use${1:${TM_FILENAME_BASE}}.temporal.getState().redo(steps);",
+      "    },",
+      "    reset: () => set(initialState),",
+      "  }))",
+      ");",
+      "",
+      "export default use${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "zustand store with history"
+  },
+  "zustand store with immer, history": {
+    "prefix": "zsih",
+    "body": [
+      "import { temporal } from \"zundo\";",
+      "import { create } from \"zustand\";",
+      "import { immer } from \"zustand/middleware/immer\";",
+      "",
+      "type State = {};",
+      "",
+      "type Actions = {",
+      "  undo: (steps?: number) => void;",
+      "  redo: (steps?: number) => void;",
+      "  reset: () => void;",
+      "};",
+      "",
+      "const initialState: State = {};",
+      "",
+      "const use${1:${TM_FILENAME_BASE}} = create<State & Actions>()(",
+      "  immer(",
+      "    temporal((set) => ({",
+      "      ...initialState,",
+      "      undo: (steps) => {",
+      "        use${1:${TM_FILENAME_BASE}}.temporal.getState().undo(steps);",
+      "      },",
+      "      redo: (steps) => {",
+      "        use${1:${TM_FILENAME_BASE}}.temporal.getState().redo(steps);",
+      "      },",
+      "      reset: () => set(initialState),",
+      "    }))",
+      "  )",
+      ");",
+      "",
+      "export default use${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "zustand store with immer, history"
+  },
+  "zustand store with persist, immer, history": {
+    "prefix": "zspih",
+    "body": [
+      "import { temporal } from \"zundo\";",
+      "import { create } from \"zustand\";",
+      "import { immer } from \"zustand/middleware/immer\";",
+      "import { persist } from \"zustand/middleware\";",
+      "",
+      "type State = {};",
+      "",
+      "type Actions = {",
+      "  undo: (steps?: number) => void;",
+      "  redo: (steps?: number) => void;",
+      "  reset: () => void;",
+      "};",
+      "",
+      "const initialState: State = {};",
+      "",
+      "const use${1:${TM_FILENAME_BASE}} = create<State & Actions>()(",
+      "  persist(",
+      "    immer(",
+      "      temporal((set) => ({",
+      "        ...initialState,",
+      "        undo: (steps) => {",
+      "          use${1:${TM_FILENAME_BASE}}.temporal.getState().undo(steps);",
+      "        },",
+      "        redo: (steps) => {",
+      "          use${1:${TM_FILENAME_BASE}}.temporal.getState().redo(steps);",
+      "        },",
+      "        reset: () => set(initialState),",
+      "      }))",
+      "    ),",
+      "    {",
+      "      name: \"${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/}}-storage\",",
+      "      storage: createJSONStorage(() => ${2|localStorage,sessionStorage|}),",
+      "    }",
+      "  )",
+      ");",
+      "",
+      "export default use${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "zustand store with persist, immer, history"
   }
 }
