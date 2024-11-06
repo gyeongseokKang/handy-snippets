@@ -279,7 +279,7 @@
       "import { temporal } from \"zundo\";",
       "import { create } from \"zustand\";",
       "import { immer } from \"zustand/middleware/immer\";",
-      "import { persist } from \"zustand/middleware\";",
+      "import { createJSONStorage, persist } from \"zustand/middleware\";",
       "",
       "type State = {};",
       "",
